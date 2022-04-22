@@ -1,0 +1,36 @@
+<body>
+    <h1>Glob Transformer</h1>
+    <div style="display: flex; flex-direction: row; height: 90vh">
+        <textarea id="input_area" placeholder="Your input text here" style="flex: 1 0 auto"></textarea>
+        <div style="display: flex; flex-direction: column; flex: 1 0 auto">
+            <textarea id="code_area" style="flex: 1 0 auto"></textarea>
+            <button>Run</button>
+        </div>
+        <textarea id="output_area" style="flex: 1 0 auto" placeholder="Your output text here"></textarea>
+    </div>
+    <script>
+        document.querySelector("#code_area").value =
+            `function doTransform(instr){
+    // Transform your input here.
+    return instr
+}`;
+        let firstAlertShown = false;
+        document.querySelector("button").addEventListener("click", (e) => {
+            let instr = document.querySelector("#input_area").value;
+            try {
+                eval(document.querySelector("#code_area").value);
+                document.querySelector("#output_area").value = doTransform(instr);
+                document.querySelector("#output_area").style.background = "lightgreen"
+            } catch (e) {
+                console.error(e);
+                if (!firstAlertShown) {
+                    alert(e);
+                    alert("Further warnings suppressed; see console for details.");
+                }
+                firstAlertShown = true;
+                document.querySelector("#output_area").style.background = "pink"
+            }
+            setTimeout(() => { document.querySelector("#output_area").style.background = "white" }, 400);
+        })
+    </script>
+</body>
