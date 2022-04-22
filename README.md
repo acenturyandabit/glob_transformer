@@ -6,7 +6,7 @@ It's like SED with a GUI.
 After re-implementing this on at least three separate occasions, I thought it was time I committed to making a proper nice version of it.
 
 ## How to use
-1. Go to `acenturyandabit.github.io/glob_transformer`
+1. Go to [https://acenturyandabit.github.io/glob_transformer/]
 1. Copy your text into the first box.
 2. Complete the transformation function. 
 3. Press the 'execute' button.
